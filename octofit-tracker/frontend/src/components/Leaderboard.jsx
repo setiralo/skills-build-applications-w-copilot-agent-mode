@@ -6,7 +6,7 @@ function Leaderboard() {
   const [error, setError] = useState('')
 
   useEffect(() => {
-    fetchCollection('leaderboard').then(setEntries).catch((requestError) => setError(requestError.message))
+    fetchCollection('/api/leaderboard/').then(setEntries).catch((requestError) => setError(requestError.message))
   }, [])
 
   if (error) return <p className="alert alert-danger">{error}</p>

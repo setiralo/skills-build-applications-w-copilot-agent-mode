@@ -12,10 +12,10 @@ function collectionFromResponse(payload) {
   return []
 }
 
-export async function fetchCollection(component) {
-  const response = await fetch(`${apiBaseUrl}/api/${component}/`)
+export async function fetchCollection(endpoint) {
+  const response = await fetch(`${apiBaseUrl}${endpoint}`)
   if (!response.ok) {
-    throw new Error(`Unable to load ${component} (${response.status})`)
+    throw new Error(`Unable to load ${endpoint} (${response.status})`)
   }
   return collectionFromResponse(await response.json())
 }
